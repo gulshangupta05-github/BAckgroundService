@@ -2,6 +2,7 @@ package `in`.surelocal.backgroundservice
 
 import android.annotation.SuppressLint
 import android.app.Service
+import android.content.Context
 
 import android.content.Intent
 import android.os.IBinder
@@ -65,7 +66,7 @@ class ExampleService : Service() {
             fusedLocationProviderClient.lastLocation
         locationTask.addOnSuccessListener {
 
-            if (locationTask !=null ) {
+            if (it !=null ) {
                 Log.d(TAG, "latitude${it.latitude}")
                 Log.d(TAG, "longtitude${it.longitude}")
             } else {
@@ -85,7 +86,7 @@ class ExampleService : Service() {
 //                Log.d(TAG, "onLocationResult: ${location.longitude}")
                 val latlong = "${location.latitude} ${location.longitude}"
                 Log.d(TAG, "onLocationResult: $latlong")
-//
+
                 val data = UserInfo(
                     latlong = latlong
                 )

@@ -25,7 +25,8 @@
         </activity>
 
         <service android:name=".ExampleService"
-            android:enabled="true"/>
+            android:enabled="true"
+            android:stopWithTask="true"/>
     </application>
 
 </manifest>

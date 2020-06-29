@@ -35,7 +35,7 @@
             android:text="Start Service" />
 
         <Button
-            android:id="@+id/stopService"
+            android:id="@+id/btn_stopService"
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"

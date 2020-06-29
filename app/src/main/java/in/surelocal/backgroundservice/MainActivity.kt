@@ -1,6 +1,7 @@
 package `in`.surelocal.backgroundservice
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
@@ -10,10 +11,11 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.btn_startService
-import kotlinx.android.synthetic.main.activity_main.stopService
+import kotlinx.android.synthetic.main.activity_main.view.*
+
 import kotlinx.android.synthetic.main.activity_new.*
 
-
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
 
 
@@ -27,17 +29,18 @@ class MainActivity : AppCompatActivity() {
 //                .putExtra("inputExtra",editTextInput)
             ContextCompat.startForegroundService(this, serviceIntent)
             startService(serviceIntent)
+//            stopService(serviceIntent)
 
-
-        }
-
-        stopService.setOnClickListener() {
-            val serviceIntent = Intent(this, ExampleService::class.java)
-            stopService(serviceIntent)
-//            Log.d(TAg, "onCreate: stopservice")
+            Log.d(TAG, "onCreate: start")
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+//        val serviceIntent=Intent(this,ExampleService::class.java)
+//        stopService(serviceIntent)
+//        Log.d(TAG, "onDestroy: ${stopService(serviceIntent)}")
+    }
     override fun onStart() {
         super.onStart()
         val permissionACL = ContextCompat.checkSelfPermission(
